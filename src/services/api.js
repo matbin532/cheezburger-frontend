@@ -1,8 +1,11 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
+axios.withCredentials = true;
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + Cookies.get('refresh_token');
 
-// axios.defaults.headers.common['Authorization'] = 'Bearer ' ${localStorage.getItem('token')};
+
 
 export const getData = async (endpoint) => {
     try {

@@ -1,7 +1,9 @@
 <template>
   <div class="container py-5">
+    <div class="text-start mb-4 col-sm">
+      <button @click="goBack" class="btn btn-secondary mb-4">Back to Topics</button>
+    </div>
     <h4 class="text-start mb-4">Threads for Topic: {{ topicName }}</h4>
-    <button @click="goBack" class="btn btn-secondary mb-4">Back to Topics</button>
     <hr>
     <transition-group name="fade" tag="div" class="row">
       <div
@@ -72,6 +74,9 @@ export default {
     },
     goBack() {
       this.$router.push('/topics');
+    },
+    goHome() {
+      this.$router.push('/');
     }
   }
 }

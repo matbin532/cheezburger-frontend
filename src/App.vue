@@ -1,13 +1,16 @@
 <template>
   <div id="app">
+    <CheezNavbar/>
     <RouterView/>
   </div>
 </template>
 
 <script>
+import CheezNavbar from './components/CheezNavbar.vue'
 export default {
   name: 'App',
   components: {
+    CheezNavbar
   }
 }
 </script>

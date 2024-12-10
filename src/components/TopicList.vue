@@ -1,7 +1,9 @@
-<!-- src/components/HomePage.vue -->
 <template>
   <div class="container py-5">
-    <h4 class="text-start mb-4">Freshly cooked topics:</h4>
+    <div class="text-start mb-4">
+      <button @click="goBack" class="btn btn-secondary mb-4">Back to Home</button>
+    </div>
+    <h3 class="text-start mb-4">Freshly cooked topics:</h3>
     <div class="text-end mb-4">
       <RouterLink to="/topics/new" class="btn btn-primary">Create New Topic</RouterLink>
     </div>
@@ -23,6 +25,8 @@
       </div>
     </div>
   </div>
+
+  
 </template>
 
 <script>
@@ -39,6 +43,11 @@ export default {
       this.topics = await getData('/topics/latest');
     } catch (error) {
       console.error('Error fetching topics:', error);
+    }
+  },
+  methods: {
+    goBack() {
+      this.$router.push('/');
     }
   }
 }
