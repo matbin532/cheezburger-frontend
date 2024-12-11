@@ -13,7 +13,6 @@
 
 <script>
 import { postData } from '@/services/api';
-import Cookies from 'js-cookie';
 import axios from 'axios';
 
 axios.withCredentials = true;
@@ -23,11 +22,11 @@ export default {
         async login() {
             const username = document.getElementById('inputUsername').value;
             const password = document.getElementById('inputPassword').value;
-            try {
-                await postData('/users/login', { "username": username, "password": password });
-                Cookies.get('refresh_token');
-                localStorage.setItem('refresh_token', Cookies.get('refresh_token'));
-                console.log(document.cookie);
+            try { 
+                  await postData('/users/login', {
+                    'username': username,
+                    'password': password
+                });
                 this.$router.push('/');
             } catch (error) {
                 console.error('Error logging in:', error);
@@ -89,7 +88,5 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
-
 </style>
 

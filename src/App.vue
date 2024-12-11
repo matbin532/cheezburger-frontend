@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import CheezNavbar from './components/CheezNavbar.vue'
+import CheezNavbar from './components/CheezNavbar.vue';
+
 export default {
   name: 'App',
   components: {
